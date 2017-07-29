@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>ServletExamples</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>GettingName.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<display-name>This is first Servlet</display-name>
+		<servlet-name>servletInterface</servlet-name>
+		<servlet-class>com.sample.testservlets.ServletImplementServletInterface</servlet-class>
+		<init-param>
+			<param-name>ageForThisServlet</param-name>
+			<param-value>24</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletInterface</servlet-name>
+		<url-pattern>/defaultimpl</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<display-name>This is second Servlet</display-name>
+		<servlet-name>MyFirstSL</servlet-name>
+		<servlet-class>com.sample.testservlets.SimpleServletWithRequestMethods</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyFirstSL</servlet-name>
+		<url-pattern>/firstsl</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>surnameThroughoutTheApplication</param-name>
+		<param-value>Ambani</param-value>
+	</context-param>
+	<servlet>
+		<display-name>This is Third Servlet</display-name>
+		<servlet-name>session</servlet-name>
+		<servlet-class>com.sample.testservlets.SessionMaintaining</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>session</servlet-name>
+		<url-pattern>/sessionHandling</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>This is fourth Servlet</description>
+		<servlet-name>interservletcommunication</servlet-name>
+		<servlet-class>com.sample.requestdispatcher.InterServletCommunication</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>interservletcommunication</servlet-name>
+		<url-pattern>/interslcommn</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>This is fifth Servlet, but executed after fourth</description>
+		<display-name>InterServletCommunication</display-name>
+		<servlet-name>attribex</servlet-name>
+		<servlet-class>com.sample.requestdispatcher.RegistrationSL</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>attribex</servlet-name>
+		<url-pattern>/regstrSL</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>This is sixth Servlet</description>
+		<display-name>AttributesExample</display-name>
+		<servlet-name>attrres</servlet-name>
+		<servlet-class>com.sample.attributes.AttributeEx</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>attrres</servlet-name>
+		<url-pattern>/attributesInSL</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>This is seventh Servlet, but executed after sixth</description>
+		<display-name>AttributesExample</display-name>
+		<servlet-name>regsl</servlet-name>
+		<servlet-class>com.sample.attributes.SecondAttrServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>regsl</servlet-name>
+		<url-pattern>/regstrSL1</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>This is Eightth SL Program for Filters</description>
+		<servlet-name>studregTest</servlet-name>
+		<servlet-class>com.sample.filtertest.FilterforValidation</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studregTest</servlet-name>
+		<url-pattern>/studreg</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<description>This is first filter</description>
+		<display-name>FilterF1</display-name>
+		<filter-name>stdregfilter1</filter-name>
+		<filter-class>com.sample.filtertest.ValidationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>stdregfilter1</filter-name>
+		<url-pattern>/studreg</url-pattern>
+	</filter-mapping>
+	<filter>
+		<description>Seconf filter</description>
+		<display-name>FilterF2</display-name>
+		<filter-name>stdregfilter2</filter-name>
+		<filter-class>com.sample.filtertest.ValidationFilter2</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>stdregfilter2</filter-name>
+		<url-pattern>/studreg</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	<servlet>
+		<description>This is Ninth SL Program for Cookies</description>
+		<description>Session Management Using Cookie</description>
+		<servlet-name>ssnusingcookie</servlet-name>
+		<servlet-class>com.sample.cookies.SsnExample</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ssnusingcookie</servlet-name>
+		<url-pattern>/SessionMgmtUsingCookie</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>This is Tenth SL Program for Cookies</description>
+		<description>Session Management Using Cookie</description>
+		<servlet-name>ssnusingcookieEx</servlet-name>
+		<servlet-class>com.sample.cookies.SsnExampleSecondSl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ssnusingcookieEx</servlet-name>
+		<url-pattern>/cookiesssnpg2</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>
